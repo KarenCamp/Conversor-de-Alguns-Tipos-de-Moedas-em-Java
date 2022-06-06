@@ -262,7 +262,7 @@ public class ConversorApp extends javax.swing.JFrame {
         BigDecimal pLibraHj = new BigDecimal("0.1668864");
         BigDecimal pPesoArgHj = new BigDecimal("25.1509054");
         BigDecimal  pPesoChilenoHj = new BigDecimal("170.212766");
-        DecimalFormat df = new DecimalFormat("#.#####");
+        DecimalFormat df = new DecimalFormat("#.####");
         
         switch (Integer.parseInt(chooseOption.getValue().toString())){
             case 1 -> lblRealParaDolarValue.setText("$ " + df.format(quantia.multiply(pDolarHj)));
