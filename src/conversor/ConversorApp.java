@@ -214,7 +214,7 @@ public class ConversorApp extends javax.swing.JFrame {
 
         lblDataCotacao.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         lblDataCotacao.setForeground(java.awt.Color.darkGray);
-        lblDataCotacao.setText("<html>Data da cotação:<br><center>03/06/2022</center></html>");
+        lblDataCotacao.setText("<html>Data da cotação:<br><center>07/06/2022</center></html>");
         telaConversor.getContentPane().add(lblDataCotacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 90, 40));
 
         lblOption.setBackground(new java.awt.Color(42, 122, 228));
@@ -257,12 +257,16 @@ public class ConversorApp extends javax.swing.JFrame {
     private void btnConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConverterActionPerformed
 
         BigDecimal quantia = new BigDecimal(getSpinnerQuantia().getValue().toString());
-        BigDecimal pDolarHj = new BigDecimal("0.2085245");
-        BigDecimal pEuroHj = new BigDecimal("0.1946472");
-        BigDecimal pLibraHj = new BigDecimal("0.1668864");
-        BigDecimal pPesoArgHj = new BigDecimal("25.1509054");
-        BigDecimal  pPesoChilenoHj = new BigDecimal("170.212766");
-        DecimalFormat df = new DecimalFormat("#.####");
+        BigDecimal pDolarHj = new BigDecimal("0.2044613");
+        BigDecimal pEuroHj = new BigDecimal("0.1911205");
+        BigDecimal pLibraHj = new BigDecimal("0.1623219");
+        BigDecimal pPesoArgHj = new BigDecimal("24.7954376");
+        BigDecimal  pPesoChilenoHj = new BigDecimal("169.8946653");
+        String padrao = "###,###.####";
+        DecimalFormatSymbols dfs = new DecimalFormatSymbols(new Locale("pt", "Brazil"));
+        dfs.setDecimalSeparator(',');
+        dfs.setGroupingSeparator('.');
+        DecimalFormat df = new DecimalFormat(padrao, dfs);
         
         switch (Integer.parseInt(chooseOption.getValue().toString())){
             case 1 -> lblRealParaDolarValue.setText("$ " + df.format(quantia.multiply(pDolarHj)));
